@@ -13,19 +13,13 @@ btn.addEventListener("click", () => {
         el.style.background = "#9b9a9a"
     })
     sky.style.background = "#25176a"
-    stars.forEach(el => {
-        el.style.opacity = "1"
-    });
+    let i = 0
+    setInterval(() => {
+        stars[i].style.opacity = 1
+        i++
+        if ( i > stars.length-1) {
+            i = 0
+        }
+    }, 500);
 })
-let i = 0;
-setInterval(() => {
-    stars.forEach(el => {
-        el.style.opacity = i;
-    });
-    i++;
-    if (i > 1) {
-        i = 0;
-    }
-}, 2000);
-
 
