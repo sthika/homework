@@ -29,7 +29,7 @@ fetch('https://fakestoreapi.com/products')
                     title.innerHTML = el.title
                 }
             }
-            card.addEventListener("click", modifyCard, false)
+            card.addEventListener("click", modifyCard)
         })
         
     })
