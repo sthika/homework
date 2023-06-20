@@ -20,6 +20,16 @@ btn.addEventListener("click", () => {
         if ( i > stars.length-1) {
             i = 0
         }
+                setTimeout(() => {
+
+
+
+
+            stars[i].style.opacity = 0    
+
+   
+
+        }, 1000)
     }, 500);
 })
 
