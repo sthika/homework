@@ -1,10 +1,11 @@
 let wrapper = document.querySelector(".store__wrapper")
-
+let card = document.createElement("div")
 fetch('https://fakestoreapi.com/products')
     .then(res => res.json())
     .then((data) => {
 
         return data.forEach(el => {
+            const drawCard = () => {
             let card = document.createElement("div")
             card.classList = "store__card"
             wrapper.appendChild(card)
@@ -30,6 +31,8 @@ fetch('https://fakestoreapi.com/products')
                 }
             }
             card.addEventListener("click", modifyCard)
+            }
+            drawCard()
         })
         
     })
@@ -61,15 +64,16 @@ const removeActive = () => {
     })
 }
 let modal = document.createElement('div')
-container.appendChild(modal)
-modal.className = 'store__wrapper-list'
-// data.category === innerHTML
 
 categories.forEach((el) => {
-    removeActive()
     let a = el.innerHTML
     el.addEventListener("click", (e) => {
         removeActive()
+        modal.remove()
+        modal = document.createElement('div')
+        container.appendChild(modal)
+        modal.className = 'store__wrapper-list'
+        
         el.classList.add("active"); 
         modal.style.display = "flex"
         let a = el.innerHTML
@@ -78,10 +82,11 @@ categories.forEach((el) => {
             .then((data) => {
 
                 return data.forEach(el => {
+
                     let card = document.createElement("div")
                     card.classList = "store__card"
                     modal.appendChild(card)
-        
+
                     let cardWrap = document.createElement("div")
                     cardWrap.classList = "store__img"
                     card.appendChild(cardWrap)
